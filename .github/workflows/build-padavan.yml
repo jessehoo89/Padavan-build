@@ -34,6 +34,9 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/jessehoo89/rt-n56u.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
+        sudo pacman -S gcc8
+        sudo ln -sf /usr/bin/gcc-8 /usr/local/bin/gcc
+        sudo ln -sf /usr/bin/g++-8 /usr/local/bin/g++
         ./clean_sources
         ./build_toolchain_3.4.x
     - name: Build Firmware
